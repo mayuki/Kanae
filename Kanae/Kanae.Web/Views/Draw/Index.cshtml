@@ -1,0 +1,62 @@
+﻿@model Kanae.Data.MediaInfo
+@{
+    Title = "Draw";
+}
+@section LocalResources
+{
+    <script src="~/Scripts/External/jscolor/jscolor.js"></script>
+    <script src="~/Scripts/Kanae/drawing.js"></script>
+}
+<h2>Draw</h2>
+
+<div id="drawing-not-supported">
+    <p>ご利用中のブラウザーではお絵かきに対応していないようです。</p>
+    <p>対応ブラウザー: Microsoft Internet Explorer 10+, Google Chrome 35+, Mozilla Firefox (最新), Opera 20+</p>
+</div>
+
+<div id="drawing-loading">
+    <p>読み込み中です...</p>
+</div>
+
+<div id="drawing-toolbar">
+    <ul>
+        @*
+        <li>
+            対象:
+            <div class="btn-group">
+                <button type="button" class="btn btn-primary btn-square dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-file"></span> <span id="drawing-current-write-target">オリジナルに上書き</span> <span class="caret"></span></button>
+                <ul class="dropdown-menu" role="menu">
+                    <li><a href="#">書きこみとして追加</a></li>
+                    <li><a href="#">オリジナルに上書き</a></li>
+                </ul>
+            </div>
+        </li>
+        *@
+        <li><button id="drawing-toolbar-save" class="btn btn-square btn-primary"><span class="glyphicon glyphicon-floppy-disk"></span> 上書き保存</button></li>
+        <li>@*<button id="drawing-toolbar-stroke" class="btn btn-square"><span class="glyphicon glyphicon-pencil"></span></button>*@<span class="glyphicon glyphicon-pencil"></span></li>
+        <li><select id="drawing-toolbar-strokesize"><option value="1">1px</option><option value="5">5px</option><option value="10" selected="selected">10px</option><option value="20">20px</option><option value="40">40px</option></select></li>
+        <li><input id="drawing-toolbar-color" type="text" value="#FF3B3B" /></li>
+        <li>Opacity:<input id="drawing-toolbar-opacity" type="number" value="75" min="0" max="100" /></li>
+        <li><button id="drawing-toolbar-clear" class="btn btn-square"><span class="glyphicon glyphicon-remove"></span> 消去</button></li>
+        <li><button id="drawing-toolbar-crop" class="btn btn-square"><span class="glyphicon glyphicon-resize-small"></span> 切り抜き</button></li>
+    </ul>
+    <ul>
+        <li>
+            @using (Html.BeginForm("Crop", "Draw", new { id = Model.MediaId }, FormMethod.Post, new { id = "drawing-crop-form" }))
+            {
+                @Html.AntiForgeryToken()
+                <input type="hidden" name="x" value="" />
+                <input type="hidden" name="y" value="" />
+                <input type="hidden" name="width" value="" />
+                <input type="hidden" name="height" value="" />
+                <button id="drawing-toolbar-crop-commit" class="btn btn-square btn-danger" type="submit"><span class="glyphicon glyphicon-resize-small"></span> 選択範囲で切り抜いて保存</button>
+            }
+        </li>
+        <li><button id="drawing-toolbar-crop-cancel" class="btn btn-square">キャンセル</button></li>
+    </ul>
+</div>
+<div id="drawing-viewport">
+    <img id="drawing-base-image" alt="@Model.MediaId" src="@Url.Action("Show", "Media", new { Id = Model.MediaId })" />
+    <canvas id="drawing-canvas"></canvas>
+    <canvas id="drawing-canvas-buffer"></canvas>
+</div>

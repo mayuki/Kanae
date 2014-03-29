@@ -1,0 +1,16 @@
+﻿<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns#">
+<head>
+    <meta charset="utf-8">
+    <title>@Title - Kanae</title>
+    <link rel="icon" type="image/vnd.microsoft.icon" href="/favicon.ico?rev=1" />
+    @if (IsSectionDefined("LocalResources"))
+    {
+    <!-- local-resources -->@RenderSection("LocalResources", required:false)
+    <!-- /local-resources -->
+    }
+</head>
+<body>
+@RenderBody()
+</body>
+</html>

@@ -1,0 +1,343 @@
+﻿/* ==================================================
+ * Bootstrap/Bootflat Overrides: Core
+ * ================================================== */
+body {
+  font-family: 'Segoe UI Semilight', 'Open Sans', 'Helvetica', 'Meiryo', sans-serif;
+  background: transparent url(/Content/Images/background_01.png) no-repeat right 120px fixed;
+}
+.navbar {
+  font-family: 'Segoe UI Semilight', 'Open Sans', 'Meiryo', sans-serif;
+}
+.navbar-inverse .navbar-brand img {
+  vertical-align: baseline;
+  width: auto;
+  height: 18px;
+}
+/* ==================================================
+ * Bootstrap/Bootflat Overrides: Colors
+ * ================================================== */
+.navbar-inverse {
+  background-color: rgba(255, 255, 255, 0.95);
+  border: none;
+}
+.navbar-inverse .navbar-collapse,
+.navbar-inverse .navbar-form {
+  border-color: #68b879;
+}
+.navbar-inverse .navbar-nav > li > a {
+  color: #326c3e;
+  border-top: 2px solid transparent;
+}
+.navbar-inverse .navbar-nav > li > a:hover,
+.navbar-inverse .navbar-nav > li > a:focus {
+  color: #68b879;
+}
+.navbar-inverse .nav .active a,
+.navbar-inverse .nav .active a:hover,
+.navbar-inverse .nav .active a:focus,
+.navbar-inverse .nav li.open.dropdown .dropdown-toggle,
+.navbar-inverse .nav li.active.dropdown .dropdown-toggle,
+.navbar-inverse .nav li.active.open.dropdown .dropdown-toggle {
+  border-top: 2px solid #68b879;
+  color: #68b879;
+  background-color: #f8fff9;
+}
+.navbar-inverse .navbar-brand,
+.navbar-inverse .navbar-brand:hover,
+.navbar-inverse .navbar-brand:focus {
+  color: #fff;
+  background-color: #326c3e;
+}
+@media all and (min-width: 768px) {
+  .container > .navbar-header,
+  .container-fluid > .navbar-header {
+    margin-right: 15px;
+    margin-left: -15px;
+    border-top: 2px solid #326c3e;
+  }
+  .navbar > .container .navbar-brand,
+  .navbar > .container-fluid .navbar-brand {
+    margin-left: 0;
+  }
+}
+@media (max-width: 768px) {
+  .navbar-inverse {
+    background-color: #326c3e;
+    border-color: #326c3e;
+  }
+  .navbar-inverse .navbar-nav > li > a {
+    color: #fff;
+    border-top: none;
+  }
+  .navbar-inverse .nav .active a,
+  .navbar-inverse .nav .active a:hover,
+  .navbar-inverse .nav .active a:focus,
+  .navbar-inverse .nav li.open.dropdown .dropdown-toggle,
+  .navbar-inverse .nav li.active.dropdown .dropdown-toggle,
+  .navbar-inverse .nav li.active.open.dropdown .dropdown-toggle {
+    border-top: none;
+    color: #fff;
+  }
+  .navbar-toggle,
+  .navbar-inverse .navbar-toggle:hover,
+  .navbar-inverse .navbar-toggle:focus {
+    background-color: #326c3e;
+    border: #326c3e;
+  }
+  .navbar-inverse .nav .active a,
+  .navbar-inverse .nav .active a:hover,
+  .navbar-inverse .nav .active a:focus,
+  .navbar-inverse .nav li.open.dropdown .dropdown-toggle,
+  .navbar-inverse .nav li.active.dropdown .dropdown-toggle,
+  .navbar-inverse .nav li.active.open.dropdown .dropdown-toggle {
+    background-color: #326c3e;
+  }
+}
+.btn-group .btn-primary:first-child {
+  border-left-color: #68b879;
+}
+.btn-group .btn-primary {
+  border-left-color: #68b879;
+  border-right-color: #68b879;
+}
+.btn-primary,
+.disabled.btn-primary,
+[disabled].btn-primary {
+  border-color: #68b879;
+  background-color: #68b879;
+}
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active,
+.active.btn-primary,
+.open .btn-primary.dropdown-toggle {
+  border-color: #326c3e;
+  background-color: #326c3e;
+}
+.pager li > a,
+.pager li > span {
+  background-color: #68b879;
+  color: #fff;
+}
+.pager li a:hover,
+.pager li a:focus {
+  background-color: #326c3e;
+  color: #fff;
+  border-radius: 0;
+}
+.dropdown-menu {
+  background-color: #fff;
+  color: #000;
+  border-radius: 0;
+  border-left: 2px solid #326c3e;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.25);
+}
+.dropdown-menu li a {
+  color: #000;
+}
+.dropdown-menu li a:hover,
+.dropdown-menu li a:active,
+.dropdown-menu li a:focus {
+  background-color: #326c3e;
+  color: #fff;
+}
+.alert-info.alert {
+  color: #326c3e;
+  background-color: #f8fff9;
+  border-color: #68b879;
+}
+/* ==================================================
+ * Kanae: Manage
+ * ================================================== */
+.manage-index-items-group_heading {
+  font-family: 'Segoe UI Light', 'Open Sans', sans-serif;
+  font-size: 3.5em;
+  margin: 1em 0;
+}
+.manage-index-items-group_heading time {
+  background-color: #fff;
+  padding-right: 2rem;
+}
+.manage-index-items-group_heading::after {
+  border-top: 1px solid #f0f0f0;
+  display: block;
+  content: '';
+  margin-top: -0.5em;
+}
+.manage-index-items-group:nth-of-type(1) .manage-index-items-group_heading {
+  margin-top: 0.5em;
+}
+.manage-index-items li {
+  list-style-type: none;
+  display: inline-block;
+  vertical-align: top;
+  margin: 0 10px 10px 0;
+}
+.manage-index-items li article {
+  border: 1px solid #c0c0c0;
+  background-color: #fff;
+}
+.manage-index-items li article:hover {
+  box-shadow: 0px 0px 10px #ccc;
+}
+.manage-index-items li a > img {
+  display: block;
+  max-width: 200px;
+  height: auto;
+}
+.manage-index-item_footer {
+  display: block;
+  background-color: #c0c0c0;
+}
+.manage-index-item_footer::after {
+  clear: both;
+  content: '';
+  display: block;
+}
+.manage-index-item_footer time {
+  float: left;
+  color: #fff;
+  padding: 6px 12px;
+}
+.manage-index-item_footer form {
+  display: inline;
+}
+.manage-index-item_footer .btn {
+  float: left;
+}
+.manage-index-item_footer-label {
+  display: none;
+}
+/* ==================================================
+ * Kanae: Account
+ * ================================================== */
+#socialLoginList #Provider-Twitter {
+  border-color: #00acee;
+  background-color: #00acee;
+}
+#socialLoginList #Provider-Twitter:hover,
+#socialLoginList #Provider-Twitter:focus,
+#socialLoginList #Provider-Twitter:active {
+  border-color: #02506e;
+  background-color: #02506e;
+}
+#socialLoginList #Provider-Google {
+  border-color: #dd4b39;
+  background-color: #dd4b39;
+}
+#socialLoginList #Provider-Google:hover,
+#socialLoginList #Provider-Google:focus,
+#socialLoginList #Provider-Google:active {
+  border-color: #ad3a2c;
+  background-color: #ad3a2c;
+}
+#socialLoginList #Provider-Facebook {
+  border-color: #3b5999;
+  background-color: #3b5999;
+}
+#socialLoginList #Provider-Facebook:hover,
+#socialLoginList #Provider-Facebook:focus,
+#socialLoginList #Provider-Facebook:active {
+  border-color: #2a3f6c;
+  background-color: #2a3f6c;
+}
+/* ==================================================
+ * Kanae: Drawing
+ * ================================================== */
+#drawing-toolbar {
+  display: none;
+  width: 100%;
+  height: 48px;
+  position: absolute;
+  left: 0;
+  top: 52px;
+  overflow: hidden;
+  background-color: #fafafa;
+}
+#drawing-toolbar > ul {
+  width: 750px;
+  margin: auto;
+  padding: 5px 0;
+  margin-top: 0;
+  -webkit-transition: margin-top ease-in 0.2s;
+  transition: margin-top ease-in 0.2s;
+}
+#drawing-toolbar > ul > li {
+  display: inline;
+}
+#drawing-toolbar > ul > li input,
+#drawing-toolbar > ul > li select {
+  vertical-align: middle;
+}
+#drawing-toolbar form {
+  display: inline;
+}
+#drawing-toolbar.drawing-toolbar-ModeCropping ul:first-child {
+  margin-top: -43px;
+}
+@media (min-width: 768px) {
+  #drawing-toolbar > ul {
+    width: 750px;
+  }
+}
+@media (min-width: 992px) {
+  #drawing-toolbar > ul {
+    width: 970px;
+  }
+}
+@media (min-width: 1200px) {
+  #drawing-toolbar > ul {
+    width: 1170px;
+  }
+}
+#drawing-toolbar-color {
+  border: 1px solid #555;
+  text-align: center;
+  height: 32px;
+  width: 32px;
+  font-size: 0;
+}
+#drawing-viewport {
+  display: none;
+  overflow: auto;
+  position: absolute;
+  left: 0;
+  top: 100px;
+  bottom: 0;
+  right: 0;
+  background-color: #555;
+  -ms-touch-action: none;
+  touch-action: none;
+}
+#drawing-viewport #drawing-base-image {
+  background-color: #fff;
+}
+#drawing-viewport #drawing-canvas,
+#drawing-viewport #drawing-canvas-buffer {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.kanae-drawing-supported #drawing-not-supported {
+  display: none;
+}
+.kanae-drawing-ready #drawing-toolbar,
+.kanae-drawing-ready #drawing-viewport {
+  display: block;
+}
+.kanae-drawing-ready #drawing-loading {
+  display: none;
+}
+/* ==================================================
+ * Kanae: Upload
+ * ================================================== */
+#upload-form {
+  margin-bottom: 20px;
+}
+#upload-tips-draganddrop {
+  display: none;
+}
+html.draganddrop #upload-tips-draganddrop {
+  display: block;
+}
+/*# sourceMappingURL=Extra.css.map */

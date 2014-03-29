@@ -1,0 +1,47 @@
+﻿@model Kanae.Web.ViewModels.Manage.ManageIndexViewModel
+@{
+    Title = "Manage";
+}
+
+@if (!Model.Items.Any())
+{
+    <h2>Manage Your Images</h2>
+    <div class="row">
+        <p>まだ何もアップロードされていないみたいです。<a href="@Url.Action("Manage", "Account")">Gyazoなどのアップロードツールをセットアップ</a>してアップロードしましょう。</p>
+    </div>
+}
+
+<div class="manage-index-items-group">
+    @foreach (var itemGroup in Model.Items.GroupBy(x => x.CreatedAt.ToTimeZoneAdjusted().Date))
+    {
+        <h2 class="manage-index-items-group_heading"><time>@itemGroup.Key.Date.ToLocalTime().ToString("yyyy/MM/dd")</time></h2>
+        <ul class="manage-index-items">
+            @foreach (var item in itemGroup)
+            {
+                <li class="manage-index-item">
+                    <article>
+                        <a href="@Url.Action("Index", "Media", new { Id = item.MediaId })">
+                            <img src="@Url.Action("Index", "Media", new { Id = item.MediaId })/Show" alt="@item.MediaId" />
+                        </a>
+                        <footer class="manage-index-item_footer">
+                            @using (Html.BeginForm("Delete", "Manage", new { Id = item.MediaId }, FormMethod.Post))
+                            {
+                                @Html.AntiForgeryToken()
+                                <button class="btn btn-primary btn-square btn-large" onclick="return confirm('本当に削除しますか?')"><span class="glyphicon glyphicon-remove"></span><span class="manage-index-item_footer-label">削除</span></button>
+                            }
+                            <a class="btn btn-primary btn-square btn-large" href="@Url.Action("Index", "Draw", new { id = item.MediaId })"><span class="glyphicon glyphicon-pencil"></span><span class="manage-index-item_footer-label">お絵かき</span></a>
+                            <time>@item.CreatedAt.ToTimeZoneAdjusted().ToString("HH:mm")</time>
+                        </footer>
+                    </article>
+                </li>
+            }
+        </ul>
+    }
+</div>
+
+<ul class="pager">
+    @if (Model.Items.Count() == 15)
+    {
+        <li class="next"><a rel="next" href="@Url.Action("Index", new { LastDateTime = Model.Items.Last().CreatedAt.ToString("u") })">次へ &raquo;</a></li>
+    }
+</ul>

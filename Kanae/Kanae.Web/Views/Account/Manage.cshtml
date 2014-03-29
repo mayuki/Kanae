@@ -1,0 +1,65 @@
+﻿@using Microsoft.AspNet.Identity;
+@{
+    Title = "Manage Account";
+}
+
+<h2>@Title</h2>
+
+<div class="row">
+    <div class="col-md-12">
+        <h4>Gyazo+</h4>
+        <hr />
+        @if (ViewBag.UserInfo != null)
+        {
+            <p><a href="https://github.com/k725/GyazoPlus/releases">Gyazo+</a>で使うにはgyazo+.iniに下記の接続設定部分をペーストして上書きしてください。</p>
+            <pre>[Gyazo+]
+upload_server=@(Request.Url.Host)
+upload_path=/Api/Gyazo/@ViewBag.UserInfo.AuthHash
+upload_port=@(Request.Url.Port)
+upload_ua=Gyazowin/1.0
+
+use_ssl=@(Request.IsSecureConnection ? "yes" : "no")
+ssl_check_cert=yes
+</pre>
+        }
+        else
+        {
+            <p><a href="https://github.com/k725/GyazoPlus/releases">Gyazo+</a>を使うにはアプリケーショントークンを生成してください。</p>
+        }
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <h4>アプリケーショントークン</h4>
+        <hr />
+        @using (Html.BeginForm("UpdateAuthHash", "Account"))
+        {
+            @Html.AntiForgeryToken()
+            if (ViewBag.UserInfo == null)
+            {
+                <p>トークンは未設定です。<input type="submit" value="トークンを生成する" class="btn btn-primary" /></p>
+            }
+            else
+            {
+                <p>@ViewBag.UserInfo.AuthHash <input type="submit" value="トークンを再生成する" class="btn btn-primary" /></p>
+            }
+        }
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <h4>その他</h4>
+        <hr />
+        <dl>
+            <dt>チャットワーク インラインプレビュー ユーザースクリプト (for Google Chrome)</dt>
+            <dd>スクリプトをダウンロードして、Google Chromeのメニューの「ツール」→「拡張機能」を選択し、スクリプトをドロップしてインストールすることでChatWork上で画像をプレビューできるようになります。</dd>
+            <dd>@Html.ActionLink("ダウンロード", "DownloadChatworkInlinePreviewUserJs", null, new { @class = "btn btn-primary" })</dd>
+        </dl>
+    </div>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

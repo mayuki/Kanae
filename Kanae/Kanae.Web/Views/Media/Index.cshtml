@@ -1,0 +1,81 @@
+﻿@model Kanae.Data.MediaInfo
+@{
+    Layout = "~/Views/Shared/_EmptyLayout.cshtml";
+    Title = Model.MediaId.ToString();
+
+    var pageUrl = Url.Action("Index", "Media", new { Id = Model.MediaId }, Request.Url.Scheme);
+    var imageUrl = Url.Action("Show", "Media", new { Id = Model.MediaId }, Request.Url.Scheme);
+}
+@section LocalResources {
+    <meta property="og:title" content="@Model.MediaId.ToString() - Kanae">
+    <meta property="og:url" content="@pageUrl" />
+    <meta property="og:image" content="@imageUrl" />
+    <meta name="twitter:card" content="photo" />
+    <meta name="twitter:title" content="@Model.MediaId.ToString() - Kanae" />
+    <meta name="twitter:image" content="@imageUrl" />
+
+    <link rel="canonical" href="@pageUrl" />
+
+    <style>
+        body {
+            font-family: 'Segoe UI Semilight', 'Open Sans', 'Helvetica', 'Meiryo', sans-serif;
+            font-size: 0.9rem;
+        }
+        .kanae-media-footer {
+            position: fixed;
+            bottom: 0;
+            opacity: 0.25;
+        }
+            .kanae-media-footer form {
+                display: inline-block;
+                vertical-align: bottom;
+            }
+
+            .kanae-media-footer:hover {
+                opacity: 1;
+            }
+
+            .kanae-media-footer .kanae-media-footer_logo {
+                display: inline-block;
+                line-height: 20px;
+                padding: 15px;
+                color: #fff;
+                background-color: #326c3e;
+                text-decoration: none;
+                vertical-align: bottom;
+            }
+
+                .kanae-media-footer .kanae-media-footer_logo img {
+                    vertical-align: baseline;
+                    width: auto;
+                    height: 18px;
+                }
+
+            .kanae-media-footer .kanae-media-footer_nav-item {
+                display: inline-block;
+                line-height: 20px;
+                padding: 15px;
+                color: #68b879;
+                background-color: #fff;
+                text-decoration: none;
+                border: none;
+                font-size: 0.9rem;
+            }
+    </style>
+}
+<main>
+    <img alt="@Model.MediaId" src="@imageUrl" style="max-width: 100%;" onclick="this.style.maxWidth = (this.style.maxWidth) ? '' : '100%';" />
+</main>
+
+@if (User.Identity.IsAuthenticated && Model.UserId == User.Identity.GetApplicationUserId())
+{
+    <footer class="kanae-media-footer">
+        <a class="kanae-media-footer_logo" href="@Url.Action("Index", "Home")"><img alt="Kanae" src="/Content/Images/logo_01.png"></a>
+        <a class="kanae-media-footer_nav-item" href="@Url.Action("Index", "Draw", new { id = Model.MediaId })">編集</a>
+        @using (Html.BeginForm("Delete", "Manage", new { Id = Model.MediaId }, FormMethod.Post))
+        {
+            @Html.AntiForgeryToken()
+            <button class="kanae-media-footer_nav-item" onclick="return confirm('本当に削除しますか?')">削除</button>
+        }
+    </footer>
+}

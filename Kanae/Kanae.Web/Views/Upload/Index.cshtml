@@ -1,0 +1,58 @@
+﻿@model Kanae.Web.ViewModels.Upload.UploadIndexViewModel
+@{
+    Title = "Upload";
+}
+@section LocalResources
+{
+    <script src="/Scripts/Kanae/upload.js"></script>
+}
+<h2>Upload from Your Device</h2>
+
+@if (Model != null && Model.ValidationResult != null)
+{
+    <p class="alert alert-error alert-square">エラー: @Model.ValidationResult.ErrorMessage</p>
+}
+<p id="upload-tips-draganddrop" class="alert alert-info alert-square"><strong>Tips:</strong> ファイルのドラッグアンドドロップやクリップボードからペーストしてもアップロードできます</p>
+
+@using (Html.BeginForm("Upload", "Upload", FormMethod.Post, new { enctype = "multipart/form-data", id = "upload-form" }))
+{
+    @Html.AntiForgeryToken()
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="input-group">
+                <input type="file" name="uploadedFile" id="uploadedFile" class="form-control form-control-square" placeholder="PNG/JPEG/GIF形式の画像ファイル" />
+                <span class="input-group-btn">
+                    <input type="submit" value="アップロード(PNG,JPEG,GIF形式)" class="btn btn-primary btn-square" />
+                </span>
+            </div>
+        </div>
+    </div>
+}
+
+
+<ul id="upload-progresses-container" class="media-list" data-bind="template: { name: 'upload-template-progress', foreach: progresses }"></ul>
+
+<script type="text/html" id="upload-template-progress">
+    <li class="media">
+        <a class="pull-right" href="#" data-bind="attr: { 'href': imageUrl }">
+            <!-- ko if: (imageUrl() != '') -->
+                <img class="media-object" src="" alt="" data-bind="attr: { 'src': imageUrl }" height="64" />
+            <!-- /ko -->
+        </a>
+        <div class="media-body">
+            <h4 class="media-heading"  data-bind="text: name">Name</h4>
+            <!-- ko if: (percent() == null) -->
+                <progress />
+            <!-- /ko -->
+            <!-- ko if: (percent() != null) -->
+                <progress value="0" max="100" data-bind="attr: { 'value': percent }" />
+            <!-- /ko -->
+            <!-- ko if: (percent() != 100) -->
+                <p>アップロードしています…</p>
+            <!-- /ko -->
+            <!-- ko if: (percent() == 100) -->
+                <p><a href="#" data-bind="attr: { 'href': imageUrl }">画像を開く</a> | <a href="#" data-bind="attr: { 'href': editUrl }">編集する</a></p>
+            <!-- /ko -->
+        </div>
+    </li>
+</script>

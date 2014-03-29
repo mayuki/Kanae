@@ -1,0 +1,31 @@
+﻿@{
+    Title = "Sign in";
+}
+
+<h2>@Title</h2>
+<div class="row">
+    <div class="col-md-4">
+        <h4>Use another service to sign in.</h4>
+    </div>
+    <div class="col-md-4">
+        <section id="socialLoginForm">
+            @Html.Partial("_ExternalLoginsListPartial", new Kanae.Web.ViewModels.Account.ExternalLoginsListPartialViewModel { Action = "ExternalLogin", ReturnUrl = ViewBag.ReturnUrl })
+        </section>
+    </div>
+</div>
+
+@if (User.Identity.IsAuthenticated)
+{
+    <p>アプリケーションを利用する権限がありません。別なサインイン情報で利用できる可能性がある場合は別なサービスでサインインしてください。</p>
+    <h3>Current User Claim Values</h3>
+    <div class="row">
+        <div class="col-md-12">
+            <p>NameIdentifier: @(((System.Security.Claims.ClaimsIdentity)User.Identity).Claims.Where(x => x.Type == System.Security.Claims.ClaimTypes.NameIdentifier).Select(x => x.Value).FirstOrDefault())</p>
+            <p>Email: @(((System.Security.Claims.ClaimsIdentity)User.Identity).Claims.Where(x => x.Type == System.Security.Claims.ClaimTypes.Email).Select(x => x.Value).FirstOrDefault())</p>
+        </div>
+    </div>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

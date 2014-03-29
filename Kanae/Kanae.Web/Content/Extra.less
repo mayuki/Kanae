@@ -1,0 +1,378 @@
+﻿@color-base: #326C3E;
+@color-light: #68B879;
+@color-ultralight: #f8fff9;
+
+.clearfix() {
+    &::after {
+        clear: both;
+        content: '';
+        display: block;
+    }
+}
+
+/* ==================================================
+ * Bootstrap/Bootflat Overrides: Core
+ * ================================================== */
+body {
+    font-family: 'Segoe UI Semilight', 'Open Sans', 'Helvetica', 'Meiryo', sans-serif;
+
+    background: transparent url(/Content/Images/background_01.png) no-repeat right 120px fixed;
+}
+
+.navbar {
+    font-family: 'Segoe UI Semilight', 'Open Sans', 'Meiryo', sans-serif;
+}
+
+.navbar-inverse .navbar-brand img {
+    vertical-align: baseline;
+    width: auto;
+    height: 18px;
+}
+
+/* ==================================================
+ * Bootstrap/Bootflat Overrides: Colors
+ * ================================================== */
+.navbar-inverse {
+    background-color: rgba(255,255,255,0.95);
+    border: none;
+}
+.navbar-inverse .navbar-collapse, .navbar-inverse .navbar-form {
+    border-color: @color-light;
+}
+.navbar-inverse .navbar-nav > li > a {
+    color: @color-base;
+    border-top: 2px solid transparent;
+}
+.navbar-inverse .navbar-nav > li > a:hover, .navbar-inverse .navbar-nav > li > a:focus {
+    color: @color-light;
+}
+.navbar-inverse .nav .active a, .navbar-inverse .nav .active a:hover, .navbar-inverse .nav .active a:focus, .navbar-inverse .nav li.open.dropdown .dropdown-toggle, .navbar-inverse .nav li.active.dropdown .dropdown-toggle, .navbar-inverse .nav li.active.open.dropdown .dropdown-toggle {
+    border-top: 2px solid @color-light;
+    color: @color-light;
+    background-color: @color-ultralight;
+}
+.navbar-inverse .navbar-brand,
+.navbar-inverse .navbar-brand:hover, .navbar-inverse .navbar-brand:focus {
+    color: #fff;
+    background-color: @color-base;
+}
+
+@media all and (min-width: 768px) {
+    .container > .navbar-header, .container-fluid > .navbar-header {
+        margin-right: 15px;
+        margin-left: -15px;
+        border-top: 2px solid @color-base;
+    }
+    .navbar > .container .navbar-brand, .navbar > .container-fluid .navbar-brand {
+        margin-left: 0;
+    }
+}
+
+@media (max-width: 768px) {
+    .navbar-inverse {
+        background-color: @color-base;
+        border-color: @color-base;
+    }
+    .navbar-inverse .navbar-nav > li > a {
+        color: #fff;
+        border-top: none;
+    }
+    .navbar-inverse .nav .active a, .navbar-inverse .nav .active a:hover, .navbar-inverse .nav .active a:focus, .navbar-inverse .nav li.open.dropdown .dropdown-toggle, .navbar-inverse .nav li.active.dropdown .dropdown-toggle, .navbar-inverse .nav li.active.open.dropdown .dropdown-toggle {
+        border-top: none;
+        color: #fff;
+    }
+    .navbar-toggle,
+    .navbar-inverse .navbar-toggle:hover, .navbar-inverse .navbar-toggle:focus {
+        background-color: @color-base;
+        border: @color-base;
+    }
+    .navbar-inverse .nav .active a, .navbar-inverse .nav .active a:hover, .navbar-inverse .nav .active a:focus, .navbar-inverse .nav li.open.dropdown .dropdown-toggle, .navbar-inverse .nav li.active.dropdown .dropdown-toggle, .navbar-inverse .nav li.active.open.dropdown .dropdown-toggle {
+        background-color: @color-base;
+    }
+}
+
+.btn-group .btn-primary:first-child {
+    border-left-color: @color-light;
+}
+.btn-group .btn-primary {
+    border-left-color: @color-light;
+    border-right-color: @color-light;
+}
+
+.btn-primary, .disabled.btn-primary, [disabled].btn-primary {
+    border-color: @color-light;
+    background-color: @color-light;
+}
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active, .active.btn-primary, .open .btn-primary.dropdown-toggle {
+    border-color: @color-base;
+    background-color: @color-base;
+}
+
+.pager li > a, .pager li > span {
+    background-color: @color-light;
+    color: #fff;
+}
+.pager li a:hover, .pager li a:focus {
+    background-color: @color-base;
+    color: #fff;
+    border-radius: 0;
+}
+
+.dropdown-menu {
+    background-color: #fff;
+    color: #000;
+    border-radius: 0;
+    border-left: 2px solid @color-base;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.25);
+}
+.dropdown-menu li a {
+    color: #000;
+}
+.dropdown-menu li a:hover,
+.dropdown-menu li a:active,
+.dropdown-menu li a:focus {
+    background-color: @color-base;
+    color: #fff;
+}
+
+.alert-info.alert {
+    color: @color-base;
+    background-color: @color-ultralight;
+    border-color: @color-light;
+}
+
+/* ==================================================
+ * Kanae: Manage
+ * ================================================== */
+.manage-index-items-group {
+    &_heading {
+        font-family: 'Segoe UI Light', 'Open Sans', sans-serif;
+        font-size: 3.5em;
+        margin: 1em 0;
+
+        time {
+            background-color: #fff;
+            padding-right: 2rem;
+        }
+
+        &::after {
+            border-top: 1px solid #f0f0f0;
+            display: block;
+            content: '';
+            margin-top: -0.5em;
+        }
+    }
+
+    &:nth-of-type(1) {
+         .manage-index-items-group_heading {
+            margin-top: 0.5em;
+         }
+    }
+}
+
+.manage-index-items {
+    li {
+        list-style-type: none;
+        display: inline-block;
+        vertical-align: top;
+        margin: 0 10px 10px 0;
+
+        article {
+            border: 1px solid #c0c0c0;
+            background-color: #fff;
+            
+            &:hover {
+                box-shadow: 0px 0px 10px #ccc;
+            }
+        }
+
+        a {
+            > img {
+                display: block;
+                max-width: 200px;
+                height: auto;
+            }
+        }
+    }
+}
+.manage-index-item {
+    &_footer {
+        .clearfix();
+
+        display: block;
+        background-color: #c0c0c0;
+
+        time {
+            float: left;
+            color: #fff;
+            padding: 6px 12px;
+        }
+        form {
+            display: inline;
+        }
+        .btn {
+            float: left;
+        }
+        
+        &-label {
+            display: none;
+        }
+    }
+}
+
+/* ==================================================
+ * Kanae: Account
+ * ================================================== */
+#socialLoginList {
+    #Provider-Twitter {
+        border-color: #00acee;
+        background-color: #00acee;
+
+        &:hover,
+        &:focus,
+        &:active {
+            border-color: #02506e;
+            background-color: #02506e;
+        }
+    }
+
+    #Provider-Google {
+        border-color: #dd4b39;
+        background-color: #dd4b39;
+
+        &:hover,
+        &:focus,
+        &:active {
+            border-color: #ad3a2c;
+            background-color: #ad3a2c;
+        }
+    }
+
+    #Provider-Facebook {
+        border-color: #3b5999;
+        background-color: #3b5999;
+
+        &:hover,
+        &:focus,
+        &:active {
+            border-color: #2a3f6c;
+            background-color: #2a3f6c;
+        }
+    }
+}
+
+/* ==================================================
+ * Kanae: Drawing
+ * ================================================== */
+#drawing-toolbar {
+    display: none;
+
+    width: 100%;
+    height: 48px;
+    position: absolute;
+    left: 0;
+    top: 52px;
+    overflow: hidden;
+    background-color: #fafafa;
+
+    > ul {
+        width: 750px;
+        margin: auto;
+        padding: 5px 0;
+
+        > li {
+            display: inline;
+            
+            input, select {
+                vertical-align: middle;
+            }
+        }
+
+        margin-top: 0;
+        -webkit-transition: margin-top ease-in 0.2s;
+                transition: margin-top ease-in 0.2s;
+
+    }
+
+    form { display: inline; }
+
+    &.drawing-toolbar-ModeCropping {
+        ul:first-child { margin-top: -43px; }
+    }
+}
+
+@media (min-width: 768px) {
+    #drawing-toolbar > ul {
+        width: 750px;
+    }
+}
+@media (min-width: 992px) {
+    #drawing-toolbar > ul {
+        width: 970px;
+    }
+}
+@media (min-width: 1200px) {
+    #drawing-toolbar > ul {
+        width: 1170px;
+    }
+}
+
+#drawing-toolbar-color {
+    border: 1px solid #555;
+    text-align: center;
+    height: 32px;
+    width: 32px;
+    font-size: 0;
+}
+#drawing-viewport {
+    display: none;
+    overflow: auto;
+    position: absolute;
+    left: 0;
+    top: 100px;
+    bottom: 0;
+    right: 0;
+    background-color: #555;
+
+    -ms-touch-action: none;
+        touch-action: none;
+
+    #drawing-base-image {
+        background-color: #fff;
+    }
+    #drawing-canvas,
+    #drawing-canvas-buffer {
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+}
+
+.kanae-drawing-supported {
+    #drawing-not-supported {
+        display: none;
+    }
+}
+
+.kanae-drawing-ready {
+    #drawing-toolbar,
+    #drawing-viewport {
+        display: block;
+    }
+    #drawing-loading {
+        display: none;
+    }
+}
+
+/* ==================================================
+ * Kanae: Upload
+ * ================================================== */
+#upload-form {
+    margin-bottom: 20px;
+}
+#upload-tips-draganddrop {
+    display: none;
+    html.draganddrop & {
+        display: block;
+    }
+}
