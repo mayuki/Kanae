@@ -260,6 +260,8 @@
     <Content Include="Scripts\External\jscolor\hv.png" />
     <Content Include="Scripts\External\jscolor\jscolor.js" />
     <Content Include="Scripts\External\q.js" />
+    <Content Include="Scripts\Kanae\drawing.js" />
+    <Content Include="Scripts\Kanae\upload.js" />
     <Content Include="Scripts\knockout-3.1.0.debug.js" />
     <Content Include="Scripts\knockout-3.1.0.js" />
     <Content Include="Views\Draw\Index.cshtml" />
