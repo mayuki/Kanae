@@ -28,7 +28,7 @@
     * Google: ユーザーの識別するURI
     * Microsoft: ユーザーを識別するID
     * Facebook: ユーザーを識別するID
-* http://schemas.xmlsoap.org/ws/2005/05/identity/claims/email: メールアドレス
+* http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress: メールアドレス
     * Google: ユーザーのメールアドレス
     * WS-Federation: ユーザーのメールアドレス
 * http://schemas.microsoft.com/ws/2008/06/identity/claims/primarysid: プライマリSID
@@ -39,7 +39,7 @@
 例えば、以下のような指定ができます。
 
 * Twitterでサインインする設定でクレームの種類にnameidentifierを指定している場合、^3613281$ とするとID(URLの英数字ではないほう)が 3613281 のユーザーのみが利用できます
-* Googleでサインインする設定でクレームの種類にemailを指定している場合、マッチ文字列を @example\.com$ すると、@example.com のメールアドレスのユーザーのみが利用できます
+* Googleでサインインする設定でクレームの種類にemailaddressを指定している場合、マッチ文字列を @example\.com$ すると、@example.com のメールアドレスのユーザーのみが利用できます
 
 .* にしたり ^$ を忘れたりすると意図しないユーザーが利用できてしまうため十分ご注意ください。
 
