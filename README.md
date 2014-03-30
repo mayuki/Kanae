@@ -1,5 +1,6 @@
 ﻿Kanae
 =====
+[![Build status](https://ci.appveyor.com/api/projects/status/ri3jt19y7kt1x56m)](https://ci.appveyor.com/project/mayuki/kanae)
 
 共有したURLからのみ画像を閲覧することのできる画像アップローダーです。
 いわゆるGyazoの設置型サーバーアプリケーションです。
