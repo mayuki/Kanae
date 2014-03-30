@@ -1,13 +1,17 @@
 ﻿Kanae
 =====
+[![Build status](https://ci.appveyor.com/api/projects/status/ri3jt19y7kt1x56m)](https://ci.appveyor.com/project/mayuki/kanae)
 
 共有したURLからのみ画像を閲覧することのできる画像アップローダーです。
 いわゆるGyazoの設置型サーバーアプリケーションです。
+
+インストールについては[インストールガイド](https://github.com/mayuki/Kanae/blob/master/INSTALL.md)を参照してください。
 
 特徴と機能
 ----------
 - ハイパーゆるふわ実装
     - アクセス制御と画像さえちゃんと消えればいいポリシー
+- 割と簡単な設置方法
 - 選べる認証プロバイダー
 - 選べるストレージバックエンド
 - 選べるデータベース
