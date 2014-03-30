@@ -61,8 +61,8 @@ var Kanae;
             };
 
             Application.prototype.onLoadCompleted = function () {
-                var _this = this;
                 // いろいろ準備する
+                var _this = this;
                 // Canvasの準備
                 this.targetCanvas.width = this.baseImage.naturalWidth;
                 this.targetCanvas.height = this.baseImage.naturalHeight;
