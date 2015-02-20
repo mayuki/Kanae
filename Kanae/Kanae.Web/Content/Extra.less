@@ -224,7 +224,8 @@ body {
  * Kanae: Account
  * ================================================== */
 #socialLoginList {
-    #Provider-Twitter {
+    #Provider-Twitter,
+    [data-authprovider-caption^="Twitter"] {
         border-color: #00acee;
         background-color: #00acee;
 
@@ -236,7 +237,8 @@ body {
         }
     }
 
-    #Provider-Google {
+    #Provider-Google,
+    [data-authprovider-caption^="Google"] {
         border-color: #dd4b39;
         background-color: #dd4b39;
 
@@ -248,7 +250,8 @@ body {
         }
     }
 
-    #Provider-Facebook {
+    #Provider-Facebook,
+    [data-authprovider-caption^="Facebook"] {
         border-color: #3b5999;
         background-color: #3b5999;
 
@@ -257,6 +260,19 @@ body {
         &:active {
             border-color: #2a3f6c;
             background-color: #2a3f6c;
+        }
+    }
+
+    #Provider-AzureActiveDirectory,
+    [data-authprovider-caption^="Azure"] {
+        border-color: #00acee;
+        background-color: #00acee;
+
+        &:hover,
+        &:focus,
+        &:active {
+            border-color: #02506e;
+            background-color: #02506e;
         }
     }
 }
