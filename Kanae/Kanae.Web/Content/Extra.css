@@ -211,35 +211,61 @@ body {
 /* ==================================================
  * Kanae: Account
  * ================================================== */
-#socialLoginList #Provider-Twitter {
+#socialLoginList #Provider-Twitter,
+#socialLoginList [data-authprovider-caption^="Twitter"] {
   border-color: #00acee;
   background-color: #00acee;
 }
 #socialLoginList #Provider-Twitter:hover,
+#socialLoginList [data-authprovider-caption^="Twitter"]:hover,
 #socialLoginList #Provider-Twitter:focus,
-#socialLoginList #Provider-Twitter:active {
+#socialLoginList [data-authprovider-caption^="Twitter"]:focus,
+#socialLoginList #Provider-Twitter:active,
+#socialLoginList [data-authprovider-caption^="Twitter"]:active {
   border-color: #02506e;
   background-color: #02506e;
 }
-#socialLoginList #Provider-Google {
+#socialLoginList #Provider-Google,
+#socialLoginList [data-authprovider-caption^="Google"] {
   border-color: #dd4b39;
   background-color: #dd4b39;
 }
 #socialLoginList #Provider-Google:hover,
+#socialLoginList [data-authprovider-caption^="Google"]:hover,
 #socialLoginList #Provider-Google:focus,
-#socialLoginList #Provider-Google:active {
+#socialLoginList [data-authprovider-caption^="Google"]:focus,
+#socialLoginList #Provider-Google:active,
+#socialLoginList [data-authprovider-caption^="Google"]:active {
   border-color: #ad3a2c;
   background-color: #ad3a2c;
 }
-#socialLoginList #Provider-Facebook {
+#socialLoginList #Provider-Facebook,
+#socialLoginList [data-authprovider-caption^="Facebook"] {
   border-color: #3b5999;
   background-color: #3b5999;
 }
 #socialLoginList #Provider-Facebook:hover,
+#socialLoginList [data-authprovider-caption^="Facebook"]:hover,
 #socialLoginList #Provider-Facebook:focus,
-#socialLoginList #Provider-Facebook:active {
+#socialLoginList [data-authprovider-caption^="Facebook"]:focus,
+#socialLoginList #Provider-Facebook:active,
+#socialLoginList [data-authprovider-caption^="Facebook"]:active {
   border-color: #2a3f6c;
   background-color: #2a3f6c;
+}
+#socialLoginList #Provider-AzureActiveDirectory,
+#socialLoginList [data-authprovider-caption^="Azure"] {
+  border-color: #00acee;
+  background-color: #00acee;
+}
+#socialLoginList #Provider-AzureActiveDirectory:hover,
+#socialLoginList [data-authprovider-caption^="Azure"]:hover,
+#socialLoginList #Provider-AzureActiveDirectory:focus,
+#socialLoginList [data-authprovider-caption^="Azure"]:focus,
+#socialLoginList #Provider-AzureActiveDirectory:active,
+#socialLoginList [data-authprovider-caption^="Azure"]:active {
+  border-color: #02506e;
+  background-color: #02506e;
 }
 /* ==================================================
  * Kanae: Drawing

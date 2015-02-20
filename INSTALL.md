@@ -21,15 +21,19 @@
 
 #### Kanae:User:ClaimType: クレームの種類
 認証した際にわたってくる情報にはサービス固有のIDや名前、場合によってはメールアドレスなどがあります。
-そこでどの情報を利用してユーザーを制限するかを指定するのがKanae:User:ClaimTypeです。
+そこでどの情報を利用してユーザーを識別、制限するかを指定するのがKanae:User:ClaimTypeです。
+
+後々サインインするサービスを変更したい場合にはユーザーを識別するIDをメールアドレスなどにしておくことをお勧めします。
 
 * http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier: サービス固有のID
     * Twitter: TwitterのID(数値)
     * Google: ユーザーの識別するURI
     * Microsoft: ユーザーを識別するID
     * Facebook: ユーザーを識別するID
+    * OpenID Connect: ユーザーを識別するID
 * http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress: メールアドレス
     * Google: ユーザーのメールアドレス
+    * OpenID Connect: ユーザーのメールアドレス
     * WS-Federation: ユーザーのメールアドレス
 * http://schemas.microsoft.com/ws/2008/06/identity/claims/primarysid: プライマリSID
     * 統合Windows認証: ユーザーのプライマリSID (ユーザーの固有のID)
@@ -47,9 +51,9 @@
 
 認証設定について
 ---------------
-#### MicrosoftアカウントTwitter,Google,Facebookでのサインイン
+#### Microsoftアカウント,OpenID Connect(Azure AD, Google),Twitter,Google,Facebookでのサインイン
 外部認証プロバイダを利用する場合には AppSettings.config の Kanae:AuthenticationProviders を設定します。
-Kanae:AuthenticationProviders の値には利用したいプロバイダをカンマ区切りで指定します(Google,Microsoft,Twitter,Facebookを指定可能です)。
+Kanae:AuthenticationProviders の値には利用したいプロバイダをカンマ区切りで指定します(OpenIDConnect,Google,Microsoft,Twitter,Facebookを指定可能です)。
 
 Googleアカウント以外での認証にはアクセストークンが必要となりますので各開発者向けサイトで取得してください。
 

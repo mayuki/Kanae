@@ -22,7 +22,7 @@
                 @foreach (AuthenticationDescription p in loginProviders)
                 {
                     <p>
-                        <button type="submit" class="btn btn-default btn-primary" id="Provider-@p.AuthenticationType" name="provider" value="@p.AuthenticationType" title="Sign in using your @p.Caption account">Sign in with @p.AuthenticationType</button>
+                        <button type="submit" class="btn btn-default btn-primary" id="Provider-@p.AuthenticationType" name="provider" value="@p.AuthenticationType" data-authprovider-caption="@p.Caption">Sign in with @p.Caption</button>
                     </p>
                 }
             </div>
