@@ -59,7 +59,7 @@
 - Microsoft アカウント
 - Facebook
 - 統合Windows認証
-- [予定] WS-Federation (Windows Azure Active Directory/Office 365) IdentityがPre-Releaseから上がったら対応予定
+- OpenID Connect (Azure Active Directory/Office 365/Google)
 
 選べるストレージバックエンド
 ----------------------------
